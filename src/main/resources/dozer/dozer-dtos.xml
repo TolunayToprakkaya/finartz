@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://dozer.sourceforge.net"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <mapping map-id="CustomerEntity_Customer">
+        <class-a>com.project.finartz.entity.CustomerEntity</class-a>
+        <class-b>com.project.finartz.base.dto.Customer</class-b>
+    </mapping>
+
+    <mapping map-id="AirlineEntity_Airline">
+        <class-a>com.project.finartz.entity.AirlineEntity</class-a>
+        <class-b>com.project.finartz.base.dto.Airline</class-b>
+    </mapping>
+
+    <mapping map-id="PlaneEntity_Plane">
+        <class-a>com.project.finartz.entity.PlaneEntity</class-a>
+        <class-b>com.project.finartz.base.dto.Plane</class-b>
+        <field>
+            <a>airlineEntity</a>
+            <b>airline</b>
+        </field>
+    </mapping>
+
+    <mapping map-id="AirportEntity_Airport">
+        <class-a>com.project.finartz.entity.AirportEntity</class-a>
+        <class-b>com.project.finartz.base.dto.Airport</class-b>
+    </mapping>
+
+    <mapping map-id="RouteEntity_Route">
+        <class-a>com.project.finartz.entity.RouteEntity</class-a>
+        <class-b>com.project.finartz.base.dto.Route</class-b>
+        <field>
+            <a>planeEntity</a>
+            <b>plane</b>
+        </field>
+        <field>
+            <a>planeEntity.airlineEntity</a>
+            <b>plane.airline</b>
+        </field>
+        <field>
+            <a>airportEntityDeparturePlace</a>
+            <b>airportDeparturePlace</b>
+        </field>
+        <field>
+            <a>airportEntityLandingPlace</a>
+            <b>airportLandingPlace</b>
+        </field>
+    </mapping>
+
+    <mapping map-id="FlightEntity_Flight">
+        <class-a>com.project.finartz.entity.FlightEntity</class-a>
+        <class-b>com.project.finartz.base.dto.Flight</class-b>
+        <field>
+            <a>routeEntity</a>
+            <b>route</b>
+        </field>
+        <field>
+            <a>routeEntity.planeEntity</a>
+            <b>route.plane</b>
+        </field>
+        <field>
+            <a>routeEntity.planeEntity.airlineEntity</a>
+            <b>route.plane.airline</b>
+        </field>
+        <field>
+            <a>routeEntity.airportEntityDeparturePlace</a>
+            <b>route.airportDeparturePlace</b>
+        </field>
+        <field>
+            <a>routeEntity.airportEntityLandingPlace</a>
+            <b>route.airportLandingPlace</b>
+        </field>
+    </mapping>
+
+    <mapping map-id="TicketEntity_Ticket">
+        <class-a>com.project.finartz.entity.TicketEntity</class-a>
+        <class-b>com.project.finartz.base.dto.Ticket</class-b>
+        <field>
+            <a>flightEntity</a>
+            <b>flight</b>
+        </field>
+        <field>
+            <a>flightEntity.routeEntity</a>
+            <b>flight.route</b>
+        </field>
+        <field>
+            <a>flightEntity.routeEntity.planeEntity</a>
+            <b>flight.route.plane</b>
+        </field>
+        <field>
+            <a>flightEntity.routeEntity.planeEntity.airlineEntity</a>
+            <b>flight.route.plane.airline</b>
+        </field>
+        <field>
+            <a>flightEntity.routeEntity.airportEntityDeparturePlace</a>
+            <b>flight.route.airportDeparturePlace</b>
+        </field>
+        <field>
+            <a>flightEntity.routeEntity.airportEntityLandingPlace</a>
+            <b>flight.route.airportLandingPlace</b>
+        </field>
+        <field>
+            <a>customerEntity</a>
+            <b>customer</b>
+        </field>
+    </mapping>
+</mappings>
